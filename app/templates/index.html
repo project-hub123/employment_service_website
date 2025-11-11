@@ -10,7 +10,7 @@
         <div class="banner-text">
             <h1>Служба занятости населения</h1>
             <p>Помогаем найти работу и сотрудников. Поддержка граждан, работодателей и студентов.</p>
-            <a href="{{ url_for('vacancies') }}" class="btn-primary">Перейти к вакансиям</a>
+            <a href="{{ url_for('main.vacancies') }}" class="btn-primary">Перейти к вакансиям</a>
         </div>
     </section>
 
@@ -27,7 +27,7 @@
             пройти профориентацию или оставить заявку на подбор персонала. Мы открыты для каждого, кто ищет
             возможности для трудоустройства или развития карьеры.
         </p>
-        <a href="{{ url_for('about') }}" class="btn-secondary">Подробнее о нас</a>
+        <a href="{{ url_for('main.about') }}" class="btn-secondary">Подробнее о нас</a>
     </section>
 
     <!-- Новости -->
@@ -39,7 +39,7 @@
                 <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}">
                 <h3>{{ article.title }}</h3>
                 <p>{{ article.short_text }}</p>
-                <a href="{{ url_for('news') }}" class="read-more">Читать далее</a>
+                <a href="{{ url_for('main.news') }}" class="read-more">Читать далее</a>
             </article>
             {% else %}
             <p>Новости пока отсутствуют. Следите за обновлениями!</p>
@@ -53,11 +53,11 @@
         <div class="vacancy-list">
             {% for job in vacancies %}
             <div class="vacancy-card">
-                <h3>{{ job.title }}</h3>
+                <h3>{{ job.position }}</h3>
                 <p><strong>Компания:</strong> {{ job.company }}</p>
                 <p><strong>Город:</strong> {{ job.city }}</p>
                 <p><strong>Зарплата:</strong> {{ job.salary }} ₽</p>
-                <a href="{{ url_for('vacancies') }}" class="btn-small">Подробнее</a>
+                <a href="{{ url_for('main.vacancies') }}" class="btn-small">Подробнее</a>
             </div>
             {% else %}
             <p>Актуальные вакансии появятся в ближайшее время.</p>
@@ -75,7 +75,7 @@
             <li><strong>Email:</strong> info@employment-service.ru</li>
             <li><strong>График работы:</strong> Пн–Пт, 9:00–18:00</li>
         </ul>
-        <a href="{{ url_for('contacts') }}" class="btn-secondary">Контактная информация</a>
+        <a href="{{ url_for('main.contacts') }}" class="btn-secondary">Контактная информация</a>
     </section>
 
 </main>

@@ -8,7 +8,7 @@
         <h1>Вход в личный кабинет</h1>
         <p>Введите логин и пароль для доступа к личному кабинету.</p>
 
-        <form action="{{ url_for('login') }}" method="POST" class="auth-form">
+        <form action="{{ url_for('main.login') }}" method="POST" class="auth-form">
             <label for="username">Логин:</label>
             <input type="text" id="username" name="username" placeholder="Введите логин" required>
 
@@ -22,7 +22,7 @@
             <p class="error-message">{{ error }}</p>
         {% endif %}
 
-        <p class="register-link">Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+        <p class="register-link">Нет аккаунта? <a href="{{ url_for('main.register') }}">Зарегистрироваться</a></p>
     </section>
 
 </main>

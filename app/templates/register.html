@@ -8,7 +8,7 @@
         <h1>Регистрация пользователя</h1>
         <p>Создайте учетную запись для доступа к личному кабинету.</p>
 
-        <form action="{{ url_for('register') }}" method="POST" class="auth-form">
+        <form action="{{ url_for('main.register') }}" method="POST" class="auth-form">
             <label for="username">Логин:</label>
             <input type="text" id="username" name="username" placeholder="Введите логин" required>
 
@@ -27,6 +27,8 @@
         {% if message %}
             <p class="success-message">{{ message }}</p>
         {% endif %}
+
+        <p class="login-link">Уже есть аккаунт? <a href="{{ url_for('main.login') }}">Войти</a></p>
     </section>
 
 </main>
@@ -71,6 +73,21 @@
     color: #10b981;
     font-weight: 600;
     margin-top: 10px;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.login-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }
 </style>
 
