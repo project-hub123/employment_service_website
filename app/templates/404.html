@@ -12,9 +12,9 @@
             <img src="{{ url_for('static', filename='images/404_image.png') }}" alt="Страница не найдена" class="error-image">
 
             <div class="error-actions">
-                <a href="{{ url_for('index') }}" class="btn-primary">На главную</a>
-                <a href="{{ url_for('site_map') }}" class="btn-secondary">Карта сайта</a>
-                <a href="{{ url_for('contacts') }}" class="btn-secondary">Связаться с нами</a>
+                <a href="{{ url_for('main.index') }}" class="btn-primary">На главную</a>
+                <a href="{{ url_for('main.site_map') }}" class="btn-secondary">Карта сайта</a>
+                <a href="{{ url_for('main.contacts') }}" class="btn-secondary">Связаться с нами</a>
             </div>
         </div>
     </section>

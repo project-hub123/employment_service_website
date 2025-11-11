@@ -35,7 +35,7 @@
                 <h2>Форма обратной связи</h2>
                 <p>Пожалуйста, заполните форму — мы свяжемся с вами в ближайшее время.</p>
 
-                <form action="{{ url_for('contacts') }}" method="POST" class="contact-form">
+                <form action="{{ url_for('main.contacts') }}" method="POST" class="contact-form">
                     <label for="name">Ваше имя:</label>
                     <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
 
