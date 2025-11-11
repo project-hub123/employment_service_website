@@ -8,45 +8,45 @@
     <title>{% block title %}Служба занятости населения{% endblock %}</title>
 
     <!-- Основной стиль -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" id="style-normal">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/style.css') }}" id="style-normal">
 
     <!-- Альтернативный стиль для слабовидящих -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_accessible.css') }}" id="style-accessible" disabled>
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/style_accessible.css') }}" id="style-accessible" disabled>
 
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('main.static', filename='images/logo.png') }}">
 </head>
 
 <body>
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="{{ url_for('index') }}">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип службы занятости">
+                <a href="{{ url_for('main.index') }}">
+                    <img src="{{ url_for('main.static', filename='images/logo.png') }}" alt="Логотип службы занятости">
                     <span class="site-name">Служба занятости населения</span>
                 </a>
             </div>
 
             <nav class="main-nav">
                 <ul>
-                    <li><a href="{{ url_for('index') }}">Главная</a></li>
-                    <li><a href="{{ url_for('about') }}">О службе</a></li>
-                    <li><a href="{{ url_for('vacancies') }}">Вакансии</a></li>
-                    <li><a href="{{ url_for('employers') }}">Работодателям</a></li>
-                    <li><a href="{{ url_for('news') }}">Новости</a></li>
-                    <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+                    <li><a href="{{ url_for('main.index') }}">Главная</a></li>
+                    <li><a href="{{ url_for('main.about') }}">О службе</a></li>
+                    <li><a href="{{ url_for('main.vacancies') }}">Вакансии</a></li>
+                    <li><a href="{{ url_for('main.employers') }}">Работодателям</a></li>
+                    <li><a href="{{ url_for('main.news') }}">Новости</a></li>
+                    <li><a href="{{ url_for('main.contacts') }}">Контакты</a></li>
                 </ul>
             </nav>
 
             <div class="user-actions">
                 {% if current_user.is_authenticated %}
-                    <a href="{{ url_for('user_profile') }}" class="btn-profile">Профиль</a>
-                    <a href="{{ url_for('logout') }}" class="btn-logout">Выйти</a>
+                    <a href="{{ url_for('main.user_profile') }}" class="btn-profile">Профиль</a>
+                    <a href="{{ url_for('main.logout') }}" class="btn-logout">Выйти</a>
                 {% else %}
-                    <a href="{{ url_for('login') }}" class="btn-login">Войти</a>
-                    <a href="{{ url_for('register') }}" class="btn-register">Регистрация</a>
+                    <a href="{{ url_for('main.login') }}" class="btn-login">Войти</a>
+                    <a href="{{ url_for('main.register') }}" class="btn-register">Регистрация</a>
                 {% endif %}
                 <button id="toggle-accessibility" class="btn-accessibility" title="Версия для слабовидящих">
-                    <img src="{{ url_for('static', filename='images/icon_accessibility.png') }}" alt="Версия для слабовидящих">
+                    <img src="{{ url_for('main.static', filename='images/icon_accessibility.png') }}" alt="Версия для слабовидящих">
                 </button>
             </div>
         </div>
@@ -66,12 +66,12 @@
             <div class="footer-links">
                 <h3>Разделы</h3>
                 <ul>
-                    <li><a href="{{ url_for('about') }}">О службе</a></li>
-                    <li><a href="{{ url_for('vacancies') }}">Вакансии</a></li>
-                    <li><a href="{{ url_for('employers') }}">Работодателям</a></li>
-                    <li><a href="{{ url_for('news') }}">Новости</a></li>
-                    <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
-                    <li><a href="{{ url_for('site_map') }}">Карта сайта</a></li>
+                    <li><a href="{{ url_for('main.about') }}">О службе</a></li>
+                    <li><a href="{{ url_for('main.vacancies') }}">Вакансии</a></li>
+                    <li><a href="{{ url_for('main.employers') }}">Работодателям</a></li>
+                    <li><a href="{{ url_for('main.news') }}">Новости</a></li>
+                    <li><a href="{{ url_for('main.contacts') }}">Контакты</a></li>
+                    <li><a href="{{ url_for('main.site_map') }}">Карта сайта</a></li>
                 </ul>
             </div>
 
