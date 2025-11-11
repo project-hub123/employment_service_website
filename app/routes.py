@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models import db, User, Vacancy, News, Message
 
+# === Определение blueprint ===
 main_bp = Blueprint('main', __name__)
 
 # ===== Главная =====
@@ -44,7 +45,13 @@ def employers():
         city = request.form['city']
         salary = request.form['salary']
         description = request.form['description']
-        new_vac = Vacancy(company=company, position=position, city=city, salary=salary, description=description)
+        new_vac = Vacancy(
+            company=company,
+            position=position,
+            city=city,
+            salary=salary,
+            description=description
+        )
         db.session.add(new_vac)
         db.session.commit()
         success = True
@@ -80,7 +87,7 @@ def login():
         user = User.query.filter_by(username=request.form['username']).first()
         if user and check_password_hash(user.password, request.form['password']):
             login_user(user)
-            return redirect(url_for('main.index'))
+            return redirect(url_for('main.index'))  
         else:
             error = 'Неверный логин или пароль'
     return render_template('login.html', error=error)
@@ -121,7 +128,7 @@ def user_profile():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.index'))  
 
 
 # ===== Админ-панель =====
@@ -130,7 +137,7 @@ def logout():
 def admin_panel():
     if current_user.role != 'admin':
         flash('Недостаточно прав для доступа к этой странице.')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.index'))  
     return render_template('admin_panel.html')
 
 
