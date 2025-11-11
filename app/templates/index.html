@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Главная — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main>
+
+    <!-- Баннер -->
+    <section class="banner">
+        <img src="{{ url_for('static', filename='images/banner1.jpg') }}" alt="Баннер службы занятости" class="banner-image">
+        <div class="banner-text">
+            <h1>Служба занятости населения</h1>
+            <p>Помогаем найти работу и сотрудников. Поддержка граждан, работодателей и студентов.</p>
+            <a href="{{ url_for('vacancies') }}" class="btn-primary">Перейти к вакансиям</a>
+        </div>
+    </section>
+
+    <!-- О службе -->
+    <section class="about-section">
+        <h2>О службе</h2>
+        <p>
+            Государственная служба занятости населения — это единая система, направленная на содействие гражданам
+            в поиске подходящей работы, а работодателям — в подборе квалифицированных кадров.
+            Наша цель — обеспечение стабильного уровня занятости и снижение безработицы.
+        </p>
+        <p>
+            На нашем сайте вы можете ознакомиться с актуальными вакансиями, получить консультацию специалиста,
+            пройти профориентацию или оставить заявку на подбор персонала. Мы открыты для каждого, кто ищет
+            возможности для трудоустройства или развития карьеры.
+        </p>
+        <a href="{{ url_for('about') }}" class="btn-secondary">Подробнее о нас</a>
+    </section>
+
+    <!-- Новости -->
+    <section class="news-section">
+        <h2>Последние новости</h2>
+        <div class="news-container">
+            {% for article in news %}
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.short_text }}</p>
+                <a href="{{ url_for('news') }}" class="read-more">Читать далее</a>
+            </article>
+            {% else %}
+            <p>Новости пока отсутствуют. Следите за обновлениями!</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Вакансии -->
+    <section class="vacancies-section">
+        <h2>Популярные вакансии</h2>
+        <div class="vacancy-list">
+            {% for job in vacancies %}
+            <div class="vacancy-card">
+                <h3>{{ job.title }}</h3>
+                <p><strong>Компания:</strong> {{ job.company }}</p>
+                <p><strong>Город:</strong> {{ job.city }}</p>
+                <p><strong>Зарплата:</strong> {{ job.salary }} ₽</p>
+                <a href="{{ url_for('vacancies') }}" class="btn-small">Подробнее</a>
+            </div>
+            {% else %}
+            <p>Актуальные вакансии появятся в ближайшее время.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact-info">
+        <h2>Как с нами связаться</h2>
+        <p>Мы всегда готовы ответить на ваши вопросы и помочь в трудоустройстве.</p>
+        <ul>
+            <li><strong>Адрес:</strong> г. Москва, ул. Трудовая, д. 7</li>
+            <li><strong>Телефон:</strong> +7 (495) 000-00-00</li>
+            <li><strong>Email:</strong> info@employment-service.ru</li>
+            <li><strong>График работы:</strong> Пн–Пт, 9:00–18:00</li>
+        </ul>
+        <a href="{{ url_for('contacts') }}" class="btn-secondary">Контактная информация</a>
+    </section>
+
+</main>
+
+{% endblock %}

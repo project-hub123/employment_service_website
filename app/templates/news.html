@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% block title %}Новости — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main class="content-wrapper">
+
+    <section class="news-page">
+        <h1>Новости службы занятости населения</h1>
+        <p>Читайте актуальные новости, обновления и полезные материалы о трудоустройстве, обучении и поддержке граждан.</p>
+
+        <!-- Поиск по новостям -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Поиск по новостям..." aria-label="Поиск по новостям">
+        </div>
+
+        <!-- Список новостей -->
+        <div class="news-list">
+
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/news1.jpg') }}" alt="Ярмарка вакансий в Москве">
+                <div class="news-content">
+                    <h2>Весенняя ярмарка вакансий прошла в Москве</h2>
+                    <p class="news-date"><strong>Дата публикации:</strong> 15.04.2025</p>
+                    <p>На ВДНХ состоялась ежегодная ярмарка вакансий, где более 150 компаний представили свыше 2000 предложений
+                    для соискателей. Особое внимание уделено молодым специалистам и студентам.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/news2.jpg') }}" alt="Цифровое обучение">
+                <div class="news-content">
+                    <h2>Новый онлайн-курс «Цифровые профессии» открыт для всех желающих</h2>
+                    <p class="news-date"><strong>Дата публикации:</strong> 27.03.2025</p>
+                    <p>Совместно с Министерством труда запущен бесплатный образовательный курс по основам цифровых профессий.
+                    Участники смогут пройти обучение онлайн и получить сертификат государственного образца.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/news3.jpg') }}" alt="Поддержка безработных граждан">
+                <div class="news-content">
+                    <h2>Расширена программа поддержки безработных граждан</h2>
+                    <p class="news-date"><strong>Дата публикации:</strong> 10.03.2025</p>
+                    <p>Теперь зарегистрированные безработные могут получить повышенное пособие при прохождении обучения
+                    по направлению службы занятости. Новые правила вступили в силу с марта 2025 года.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/news4.jpg') }}" alt="Форум работодателей">
+                <div class="news-content">
+                    <h2>Форум работодателей собрал ведущие компании региона</h2>
+                    <p class="news-date"><strong>Дата публикации:</strong> 22.02.2025</p>
+                    <p>На площадке форума представители бизнеса и образовательных учреждений обсудили вопросы подготовки
+                    квалифицированных кадров и цифровизации рынка труда.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <img src="{{ url_for('static', filename='images/news5.jpg') }}" alt="Трудоустройство молодежи">
+                <div class="news-content">
+                    <h2>Запущена программа содействия трудоустройству молодежи</h2>
+                    <p class="news-date"><strong>Дата публикации:</strong> 05.02.2025</p>
+                    <p>Проект направлен на помощь выпускникам колледжей и вузов в поиске первой работы. В рамках программы
+                    предусмотрено наставничество и сопровождение молодых специалистов.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+</main>
+
+<style>
+/* ========== Стили для страницы новостей ========== */
+
+.news-page h1 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    outline: none;
+}
+
+#search-input:focus {
+    border-color: #1e40af;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.5);
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.news-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 15px;
+}
+
+.news-content h2 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.news-content p {
+    font-size: 15px;
+    color: #444;
+    text-align: justify;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    #search-input {
+        width: 90%;
+    }
+
+    .news-page h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .news-item img {
+        height: 160px;
+    }
+}
+</style>
+
+{% endblock %}

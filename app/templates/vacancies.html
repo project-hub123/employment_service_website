@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}Вакансии — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main class="content-wrapper">
+
+    <section class="vacancies-page">
+        <h1>Актуальные вакансии</h1>
+        <p>Здесь представлены вакансии от ведущих компаний региона. Используйте поиск, чтобы найти подходящую работу по профессии или городу.</p>
+
+        <!-- Поиск -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Поиск по вакансиям..." aria-label="Поиск по вакансиям">
+        </div>
+
+        <!-- Список вакансий -->
+        <div class="vacancy-list">
+
+            <div class="vacancy-card">
+                <h2>Менеджер по продажам</h2>
+                <p><strong>Компания:</strong> ООО «Бизнес Плюс»</p>
+                <p><strong>Город:</strong> Москва</p>
+                <p><strong>Зарплата:</strong> от 75 000 ₽</p>
+                <p><strong>Описание:</strong> Продажа корпоративных услуг, работа с клиентами, ведение отчетности. Возможность карьерного роста.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Специалист по кадровому учету</h2>
+                <p><strong>Компания:</strong> АО «ТехноЛогика»</p>
+                <p><strong>Город:</strong> Санкт-Петербург</p>
+                <p><strong>Зарплата:</strong> 60 000 ₽</p>
+                <p><strong>Описание:</strong> Ведение кадровых документов, отчётность в госорганы, участие в подборе персонала.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Бухгалтер по расчету заработной платы</h2>
+                <p><strong>Компания:</strong> ООО «Альфа Финанс»</p>
+                <p><strong>Город:</strong> Нижний Новгород</p>
+                <p><strong>Зарплата:</strong> 68 000 ₽</p>
+                <p><strong>Описание:</strong> Расчет заработной платы, налоги, отчеты в ФНС и ПФР. Требуется опыт от 2 лет.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Инженер-программист</h2>
+                <p><strong>Компания:</strong> ПАО «ИнфоСофт»</p>
+                <p><strong>Город:</strong> Казань</p>
+                <p><strong>Зарплата:</strong> от 95 000 ₽</p>
+                <p><strong>Описание:</strong> Разработка и поддержка корпоративных систем, знание Python или C#, участие в проектных командах.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Водитель категории B</h2>
+                <p><strong>Компания:</strong> ООО «Доставка 24»</p>
+                <p><strong>Город:</strong> Новосибирск</p>
+                <p><strong>Зарплата:</strong> 55 000 ₽</p>
+                <p><strong>Описание:</strong> Доставка товаров по городу, знание маршрутов, аккуратное вождение. Предоставляется служебный автомобиль.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Учитель информатики</h2>
+                <p><strong>Компания:</strong> ГБОУ «Школа №1243»</p>
+                <p><strong>Город:</strong> Екатеринбург</p>
+                <p><strong>Зарплата:</strong> 50 000 ₽</p>
+                <p><strong>Описание:</strong> Преподавание информатики, подготовка учеников к ЕГЭ, участие в методической работе школы.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Администратор офиса</h2>
+                <p><strong>Компания:</strong> ООО «Офис Центр»</p>
+                <p><strong>Город:</strong> Самара</p>
+                <p><strong>Зарплата:</strong> 48 000 ₽</p>
+                <p><strong>Описание:</strong> Организация документооборота, прием посетителей, обеспечение жизнедеятельности офиса.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+            <div class="vacancy-card">
+                <h2>Оператор call-центра</h2>
+                <p><strong>Компания:</strong> ООО «Голос Сервиса»</p>
+                <p><strong>Город:</strong> Ростов-на-Дону</p>
+                <p><strong>Зарплата:</strong> от 45 000 ₽</p>
+                <p><strong>Описание:</strong> Прием входящих звонков, консультирование клиентов, работа с CRM. Возможен гибкий график.</p>
+                <a href="#" class="btn-small">Подробнее</a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<style>
+/* ========== Стили для страницы вакансий ========== */
+
+.vacancies-page h1 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    outline: none;
+}
+
+#search-input:focus {
+    border-color: #1e40af;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.5);
+}
+
+.vacancy-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.vacancy-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.vacancy-card h2 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+}
+
+.vacancy-card p {
+    font-size: 15px;
+    color: #444;
+    margin: 3px 0;
+    text-align: justify;
+}
+
+.btn-small {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.btn-small:hover {
+    background: #1e40af;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    #search-input {
+        width: 90%;
+    }
+
+    .vacancies-page h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .vacancy-card {
+        padding: 15px;
+    }
+}
+</style>
+
+{% endblock %}

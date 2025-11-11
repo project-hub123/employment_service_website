@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Карта сайта — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main class="content-wrapper">
+
+    <section class="sitemap-page">
+        <h1>Карта сайта</h1>
+        <p>На этой странице представлены все основные разделы сайта службы занятости населения.</p>
+
+        <div class="sitemap-container">
+            <ul class="sitemap-list">
+                <li><a href="{{ url_for('index') }}">Главная</a></li>
+                <li><a href="{{ url_for('about') }}">О службе</a></li>
+                <li><a href="{{ url_for('news') }}">Новости</a></li>
+                <li><a href="{{ url_for('vacancies') }}">Вакансии</a></li>
+                <li><a href="{{ url_for('employers') }}">Работодателям</a></li>
+                <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+                <li><a href="{{ url_for('login') }}">Авторизация</a></li>
+                <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+                <li><a href="{{ url_for('user_profile') }}">Профиль пользователя</a></li>
+                <li><a href="{{ url_for('site_map') }}">Карта сайта</a></li>
+            </ul>
+        </div>
+
+        <p>Если нужная страница отсутствует, воспользуйтесь <a href="{{ url_for('contacts') }}">формой обратной связи</a>.</p>
+    </section>
+
+</main>
+
+<style>
+/* ========== Стили для страницы карты сайта ========== */
+
+.sitemap-page h1 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.sitemap-page p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sitemap-container {
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.sitemap-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    font-size: 16px;
+}
+
+.sitemap-list li {
+    margin-bottom: 8px;
+}
+
+.sitemap-list a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sitemap-list a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .sitemap-page h1 {
+        font-size: 26px;
+    }
+}
+</style>
+
+{% endblock %}

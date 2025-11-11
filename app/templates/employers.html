@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% block title %}Работодателям — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main class="content-wrapper">
+
+    <section class="employers-page">
+        <h1>Информация для работодателей</h1>
+        <p>
+            Служба занятости населения оказывает содействие работодателям в подборе квалифицированного персонала,
+            проведении ярмарок вакансий, профессиональном обучении работников и консультировании по вопросам трудового законодательства.
+        </p>
+
+        <img src="{{ url_for('static', filename='images/employers_banner.jpg') }}" alt="Работодателям" class="employers-image">
+
+        <h2>Наши услуги для работодателей</h2>
+        <ul class="employers-list">
+            <li>Подбор кандидатов на открытые вакансии по базе данных службы занятости.</li>
+            <li>Размещение вакансий на сайте и в единой информационной системе.</li>
+            <li>Организация и участие в ярмарках вакансий и дней карьеры.</li>
+            <li>Проведение собеседований и тестирования кандидатов.</li>
+            <li>Консультации по вопросам законодательства о труде и занятости.</li>
+            <li>Переобучение и повышение квалификации работников по направлению работодателя.</li>
+        </ul>
+
+        <h2>Почему выбирают нас</h2>
+        <div class="employers-benefits">
+            <div class="benefit-card">
+                <h3>Бесплатные услуги</h3>
+                <p>Размещение вакансий и подбор персонала осуществляется бесплатно в рамках государственной программы занятости.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>База квалифицированных специалистов</h3>
+                <p>Тысячи резюме по всем отраслям экономики. Мы подбираем персонал быстро и эффективно.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Поддержка и консультации</h3>
+                <p>Персональные специалисты по работе с работодателями помогут по всем вопросам найма и оформления.</p>
+            </div>
+        </div>
+
+        <h2>Как разместить вакансию</h2>
+        <p>
+            Вы можете заполнить форму ниже. Наш специалист свяжется с вами для уточнения деталей и размещения вакансии в кратчайшие сроки.
+        </p>
+
+        <!-- Форма добавления вакансии -->
+        <form action="{{ url_for('employers') }}" method="POST" class="vacancy-form">
+            <label for="company">Название компании:</label>
+            <input type="text" id="company" name="company" placeholder="Введите название компании" required>
+
+            <label for="position">Должность:</label>
+            <input type="text" id="position" name="position" placeholder="Введите название вакансии" required>
+
+            <label for="city">Город:</label>
+            <input type="text" id="city" name="city" placeholder="Укажите город" required>
+
+            <label for="salary">Зарплата (₽):</label>
+            <input type="number" id="salary" name="salary" placeholder="Введите сумму" required>
+
+            <label for="description">Описание вакансии:</label>
+            <textarea id="description" name="description" rows="5" placeholder="Опишите обязанности, требования и условия" required></textarea>
+
+            <button type="submit" class="btn-primary">Отправить вакансию</button>
+        </form>
+
+        {% if success %}
+            <p class="success-message">Спасибо! Ваша вакансия успешно отправлена и будет опубликована после проверки.</p>
+        {% endif %}
+
+        <h2>Наши партнёры</h2>
+        <div class="partners">
+            <img src="{{ url_for('static', filename='images/partner1.png') }}" alt="Партнёр 1">
+            <img src="{{ url_for('static', filename='images/partner2.png') }}" alt="Партнёр 2">
+            <img src="{{ url_for('static', filename='images/partner3.png') }}" alt="Партнёр 3">
+        </div>
+    </section>
+
+</main>
+
+<style>
+/* ========== Стили для страницы "Работодателям" ========== */
+
+.employers-page h1 {
+    font-size: 32px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.employers-page p {
+    font-size: 16px;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.employers-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.employers-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.employers-list li {
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+/* --- Преимущества --- */
+.employers-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.benefit-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-card h3 {
+    color: #1e3a8a;
+    margin-bottom: 6px;
+}
+
+.benefit-card p {
+    color: #444;
+    font-size: 15px;
+}
+
+/* --- Форма вакансии --- */
+.vacancy-form {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vacancy-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.vacancy-form input,
+.vacancy-form textarea {
+    padding: 10px 12px;
+    border: 2px solid #2563eb;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.vacancy-form input:focus,
+.vacancy-form textarea:focus {
+    border-color: #1e40af;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+.success-message {
+    color: #10b981;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.partners {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.partners img {
+    width: 150px;
+    height: auto;
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.partners img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .employers-page h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .employers-image {
+        height: 240px;
+    }
+}
+</style>
+
+{% endblock %}

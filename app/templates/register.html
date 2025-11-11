@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Регистрация — Служба занятости населения{% endblock %}
+{% block content %}
+
+<main class="content-wrapper">
+
+    <section class="register-page">
+        <h1>Регистрация пользователя</h1>
+        <p>Создайте учетную запись для доступа к личному кабинету.</p>
+
+        <form action="{{ url_for('register') }}" method="POST" class="auth-form">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" placeholder="Введите логин" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Введите адрес электронной почты" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+
+            <label for="confirm">Подтверждение пароля:</label>
+            <input type="password" id="confirm" name="confirm" placeholder="Повторите пароль" required>
+
+            <button type="submit" class="btn-primary">Зарегистрироваться</button>
+        </form>
+
+        {% if message %}
+            <p class="success-message">{{ message }}</p>
+        {% endif %}
+    </section>
+
+</main>
+
+<style>
+/* ---------- Регистрация ---------- */
+.register-page h1 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.auth-form {
+    max-width: 400px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form label {
+    font-weight: 600;
+}
+
+.auth-form input {
+    padding: 10px 12px;
+    border: 2px solid #2563eb;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #1e40af;
+}
+
+.success-message {
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 10px;
+}
+</style>
+
+{% endblock %}
